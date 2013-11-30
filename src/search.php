@@ -25,13 +25,16 @@ if (!function_exists('json_decode')) {
 }
 
 // fetch search data
-function curl($querystring, $options = []) {
+function curl($path, $options = []) {
+    $domain = 'https://api.github.com/';
+    $url = $domain . $path;
+
+    return execute_curl($url, $options);
+}
+
+function execute_curl($url, $options = []) {
     $username = $options['username'];
     $password = $options['password'];
-
-    $domain = 'https://api.github.com/';
-    $action = 'search/repositories';
-    $url = $domain . $action . '?' . $querystring;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL,$url);
@@ -46,6 +49,13 @@ function curl($querystring, $options = []) {
     $content = curl_exec($ch);
     curl_close($ch);
     return $content;
+}
+
+function search_repositories($querystring, $options = []) {
+    $action = 'search/repositories';
+    $path = $action . '?' . $querystring;
+
+    return curl($path, $options);
 }
 
 // example:
