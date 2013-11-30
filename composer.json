@@ -1,0 +1,11 @@
+{
+  "name": "simkimsia/github-api-php-sdk",
+  "description": "PHP SDK for GitHub API. Inspired by the facebook-php-sdk",
+  "type": "project",
+  "keywords" : [],
+  "license" : "MIT",
+  "require" : {
+    "php" : ">=5.4",
+    "composer/installers" : "~1.0"
+  }
+}

@@ -1,0 +1,6 @@
+# User specific & automatically generated files #
+#################################################
+!empty
+.DS_Store
+composer.lock
+*.sublime-*
