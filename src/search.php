@@ -41,6 +41,7 @@ function curl($querystring, $options = []) {
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT,10);
     curl_setopt($ch, CURLOPT_TIMEOUT,60);
     curl_setopt($ch, CURLOPT_USERPWD, "$username:$password");
+    curl_setopt($ch, CURLOPT_USERAGENT, "$username");
     curl_setopt($ch, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     $content = curl_exec($ch);
     curl_close($ch);
